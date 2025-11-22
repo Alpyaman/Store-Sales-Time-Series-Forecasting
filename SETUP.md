@@ -1,39 +1,85 @@
-# Project Setup Commands for GitHub
-
-## Initial Setup
+# Setup Guide
+ 
+## Prerequisites
+ 
+- Python 3.8 or higher
+- pip package manager
+- Virtual environment (recommended)
+ 
+## Installation
+ 
+### 1. Clone the Repository
+ 
 ```bash
-git init
-git add .
-git commit -m "Initial commit: Store Sales Time Series Forecasting model"
+git clone https://github.com/yourusername/Store-Sales---Time-Series-Forecasting.git
+cd Store-Sales---Time-Series-Forecasting
 ```
-
-## Create GitHub Repository
-1. Go to GitHub and create a new repository named "store-sales-forecasting"
-2. Don't initialize with README (we already have one)
-
-## Connect and Push
+ 
+### 2. Create Virtual Environment
+ 
+**Linux/Mac:**
 ```bash
-git remote add origin https://github.com/yourusername/store-sales-forecasting.git
-git branch -M main
-git push -u origin main
+python -m venv venv
+source venv/bin/activate
 ```
-
-## Quick Test
-To verify everything works:
+ 
+**Windows:**
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
+ 
+### 3. Install Dependencies
+ 
+```bash
+pip install -r requirements.txt
+```
+ 
+## Running the Model
+ 
+Execute the main forecasting pipeline:
+ 
 ```bash
 python main.py
 ```
-
-Expected output:
+ 
+### Expected Output
+ 
+The pipeline will:
+1. Load training and test datasets from `data/` directory
+2. Engineer 109 time-based features
+3. Train a linear regression model
+4. Generate predictions for 16-day test period
+5. Save outputs:
+   - `submission_notebook_method.csv` (28,512 predictions)
+   - `time_series_model.pkl` (trained model)
+ 
+### Performance Indicators
+ 
 - Training RMSLE: ~0.55333
-- Generates submission_notebook_method.csv with 28,512 predictions
-- Saves time_series_model.pkl
-
-## Project Status
-✅ Cleaned up experimental files
-✅ Created comprehensive README
-✅ Added proper .gitignore
-✅ Organized data files into data/ directory
-✅ Added MIT license
-✅ Clean requirements.txt
-✅ Working prediction pipeline
+- Prediction coverage: 95.9% non-zero
+- Processing time: ~30-60 seconds (depending on hardware)
+ 
+## Data Requirements
+ 
+Ensure the following CSV files are present in the `data/` directory:
+- `train.csv` - Training sales data
+- `test.csv` - Test data for predictions
+- `holidays_events.csv` - Holiday calendar
+- `stores.csv` - Store metadata (optional)
+- `oil.csv` - Oil prices (optional)
+- `transactions.csv` - Transaction counts (optional)
+ 
+## Troubleshooting
+ 
+### Missing Data Files
+If you encounter "FileNotFoundError", ensure all required CSV files are in the `data/` directory.
+ 
+### Memory Issues
+The model uses categorical dtypes and float32 for memory efficiency. If issues persist, ensure at least 4GB RAM is available.
+ 
+### Import Errors
+Reinstall dependencies:
+```bash
+pip install -r requirements.txt --force-reinstall
+```

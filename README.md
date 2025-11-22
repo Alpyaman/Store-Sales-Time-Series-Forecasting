@@ -1,18 +1,18 @@
 # Store Sales Time Series Forecasting
 
-A sophisticated time series forecasting solution for predicting store sales in Ecuador using advanced statistical modeling techniques.
-
-## 🎯 Project Overview
-
-This project tackles the **Store Sales - Time Series Forecasting** Kaggle competition, focusing on predicting sales for Favorita stores in Ecuador. The solution implements advanced time series modeling using statsmodels and linear regression to capture complex seasonal patterns and trends.
-
-### Key Achievements
-- **Improved from baseline**: Initial simple model scored 3.67735 → Advanced time series model with realistic predictions
-- **Training RMSLE**: 0.55333 (on sample validation)
-- **Coverage**: 95.9% non-zero predictions (27,355 out of 28,512)
-- **Prediction range**: $0.00 - $16,574.79 with mean of $493.50
-
-## 🏗️ Model Architecture
+A sophisticated time series forecasting solution for predicting store sales in Ecuador using advanced statistical modeling and linear regression.
+ 
+## Project Overview
+ 
+This project implements a forecasting model for the Favorita stores sales prediction challenge. The solution leverages statsmodels andscikit-learn to capture complex temporal patterns including trends, seasonality, and holiday effects.
+ 
+### Performance Metrics
+- Training RMSLE: 0.55333 (sample validation)
+- Coverage: 95.9% non-zero predictions (27,355 out of 28,512)
+- Prediction range: $0.00 - $16,574.79
+- Mean prediction: $493.50
+ 
+## Model Architecture
 
 ### Time Series Components
 1. **Linear Trend**: Captures long-term growth patterns using DeterministicProcess
@@ -29,21 +29,21 @@ This project tackles the **Store Sales - Time Series Forecasting** Kaggle compet
 - **Prediction Period**: 2017-08-16 to 2017-08-31 (16 days)
 - **Format**: Wide format training with MultiIndex handling
 
-## 📊 Data Overview
-
+## Data Overview
+ 
 ### Training Data
-- **Records**: 3,000,888 sales transactions
-- **Stores**: 54 Favorita stores across Ecuador
-- **Product Families**: 33 different product categories
-- **Features**: Date, store number, product family, sales, promotions
-
+- Records: 3,000,888 sales transactions
+- Stores: 54 Favorita stores across Ecuador
+- Product Families: 33 different product categories
+- Features: Date, store number, product family, sales, promotions
+ 
 ### External Data
-- **Holiday Events**: Ecuador national holidays and special events
-- **Store Information**: Store metadata and characteristics
-- **Oil Prices**: Economic indicator data
-- **Transactions**: Store traffic patterns
-
-## 🚀 Quick Start
+- Holiday Events: Ecuador national holidays and special events
+- Store Information: Store metadata and characteristics
+- Oil Prices: Economic indicator data
+- Transactions: Store traffic patterns
+ 
+## Quick Start
 
 ### Prerequisites
 ```bash
@@ -83,16 +83,16 @@ This will:
 5. Save results as `submission_notebook_method.csv`
 6. Save the trained model as `time_series_model.pkl`
 
-## 📁 Project Structure
-
+## Project Structure
+ 
 ```
 store-sales-forecasting/
 ├── main.py                          # Main training and prediction pipeline
-├── debug_predictions.ipynb          # Jupyter notebook for debugging pipeline
+├── debug_predictions.ipynb          # Jupyter notebook for debugging
 ├── time_series_model.pkl           # Trained model (generated)
 ├── submission_notebook_method.csv   # Final predictions (generated)
 ├── requirements.txt                 # Python dependencies
-├── README.md                       # This file
+├── README.md                       # Documentation
 │
 ├── data/                           # Competition datasets
 │   ├── train.csv                   # Training sales data
@@ -105,8 +105,8 @@ store-sales-forecasting/
 │
 └── venv/                          # Virtual environment (excluded from git)
 ```
-
-## 🔧 Technical Details
+ 
+## Technical Details
 
 ### Feature Engineering Pipeline
 
@@ -142,33 +142,33 @@ store-sales-forecasting/
 3. Stack to long format and merge with test IDs
 4. Handle data type mismatches for proper merging
 
-## 📈 Performance Analysis
-
+## Performance Analysis
+ 
 ### Training Metrics
-- **RMSLE**: 0.55333 (sample validation)
-- **Coverage**: Model generates predictions for all store-family combinations
-- **Computational Efficiency**: Fast training on wide format data
-
+- RMSLE: 0.55333 (sample validation)
+- Coverage: Model generates predictions for all store-family combinations
+- Computational Efficiency: Fast training on wide format data
+ 
 ### Prediction Quality
-- **Range**: Realistic sales values from $0 to $16,574.79
-- **Distribution**: Mean prediction of $493.50
-- **Sparsity**: 95.9% non-zero predictions (appropriate for retail data)
-
-## 🔍 Key Insights
-
+- Range: Realistic sales values from $0 to $16,574.79
+- Distribution: Mean prediction of $493.50
+- Sparsity: 95.9% non-zero predictions (appropriate for retail data)
+ 
+## Key Insights
+ 
 ### Data Challenges Solved
-1. **Zero Prediction Bug**: Fixed data type mismatch in merge operation
-2. **MultiIndex Handling**: Proper stacking/unstacking of wide format data
-3. **Seasonal Complexity**: Captured both weekly and annual patterns
-4. **Holiday Effects**: Incorporated Ecuador-specific calendar events
-
+1. Zero Prediction Bug: Fixed data type mismatch in merge operation
+2. MultiIndex Handling: Proper stacking/unstacking of wide format data
+3. Seasonal Complexity: Captured both weekly and annual patterns
+4. Holiday Effects: Incorporated Ecuador-specific calendar events
+ 
 ### Model Strengths
-- **Interpretable**: Linear model with clear feature contributions
-- **Scalable**: Efficient wide format training
-- **Robust**: Handles missing values and edge cases
-- **Sophisticated**: Advanced time series decomposition
-
-## 🔮 Future Improvements
+- Interpretable: Linear model with clear feature contributions
+- Scalable: Efficient wide format training
+- Robust: Handles missing values and edge cases
+- Sophisticated: Advanced time series decomposition
+ 
+## Future Improvements
 
 ### Potential Enhancements
 1. **Advanced Models**: XGBoost or neural networks for non-linear patterns
@@ -183,31 +183,42 @@ store-sales-forecasting/
 - Store clustering for similar behavior groups
 - Weather data integration
 
-## 📝 Methodology Notes
-
+## Methodology Notes
+ 
 This solution follows best practices for time series forecasting:
-- ✅ Proper temporal split (no data leakage)
-- ✅ Sophisticated feature engineering
-- ✅ Wide format for multi-target learning
-- ✅ Appropriate validation methodology
-- ✅ Realistic prediction ranges
-
+- Proper temporal split (no data leakage)
+- Sophisticated feature engineering
+- Wide format for multi-target learning
+- Appropriate validation methodology
+- Realistic prediction ranges
+ 
 The approach prioritizes interpretability and robustness over pure performance, making it suitable for production deployment in retail environments.
-
-## 🤝 Contributing
-
+ 
+## Code Quality Improvements
+ 
+The codebase has been refactored with the following improvements:
+- Type hints for all functions
+- Comprehensive docstrings (NumPy style)
+- Configuration class for centralized parameters
+- Modular design with single-responsibility functions
+- Elimination of code duplication
+- Better error handling and validation
+- Clear separation of concerns
+ 
+## Contributing
+ 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/improvement`)
 3. Commit changes (`git commit -am 'Add improvement'`)
 4. Push to branch (`git push origin feature/improvement`)
 5. Create Pull Request
-
-## 📄 License
-
+ 
+## License
+ 
 This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 🙏 Acknowledgments
-
-- Kaggle Store Sales competition for the dataset
+ 
+## Acknowledgments
+ 
+- Kaggle Store Sales competition for providing the dataset
 - statsmodels team for excellent time series tools
 - Favorita for providing real-world retail data

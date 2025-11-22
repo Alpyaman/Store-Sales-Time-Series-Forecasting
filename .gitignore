@@ -24,6 +24,7 @@ MANIFEST
 
 # Virtual Environment
 venv/
+.venv/
 env/
 ENV/
 env.bak/
@@ -46,9 +47,10 @@ venv.bak/
 *.model
 
 # Data files (large - uncomment if data should be excluded)
-# *.csv
+*.csv
 # *.zip
 # *.gz
+data/
 
 # Submission files (generated)
 submission_*.csv
