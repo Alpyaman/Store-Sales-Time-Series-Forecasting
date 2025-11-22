@@ -58,8 +58,8 @@ joblib >= 1.1.0
 ### Installation
 ```bash
 # Clone the repository
-git clone https://github.com/Alpyaman/Store-sales---Time-Series-Forecasting.git
-cd Store-sales---Time-Series-Forecasting
+git clone https://github.com/Alpyaman/Store-sales-Time-Series-Forecasting.git
+cd Store-sales-Time-Series-Forecasting
 
 # Create virtual environment
 python -m venv venv
@@ -86,7 +86,7 @@ This will:
 ## Project Structure
  
 ```
-Store-Sales---Time-Series-Forecasting/
+Store-Sales-Time-Series-Forecasting/
 ├── main.py                          # Main training and prediction pipeline
 ├── debug_predictions.ipynb          # Jupyter notebook for debugging
 ├── time_series_model.pkl           # Trained model (generated)
@@ -222,4 +222,5 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - Kaggle Store Sales competition for providing the dataset
 - statsmodels team for excellent time series tools
 - Favorita for providing real-world retail data
+
 
